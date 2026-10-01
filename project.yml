@@ -11,7 +11,7 @@ options:
 packages:
   KayakomaKit:
     url: https://github.com/beeraw/kayakoma-kit.git
-    from: 1.0.1
+    from: 1.0.2
 
 settings:
   base:
