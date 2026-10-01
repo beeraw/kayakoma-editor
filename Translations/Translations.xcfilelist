@@ -1,0 +1,12 @@
+$(SRCROOT)/Translations/de.xliff
+$(SRCROOT)/Translations/en.xliff
+$(SRCROOT)/Translations/es.xliff
+$(SRCROOT)/Translations/id.xliff
+$(SRCROOT)/Translations/it.xliff
+$(SRCROOT)/Translations/ja.xliff
+$(SRCROOT)/Translations/ko.xliff
+$(SRCROOT)/Translations/pt-BR.xliff
+$(SRCROOT)/Translations/pt-PT.xliff
+$(SRCROOT)/Translations/tr.xliff
+$(SRCROOT)/Translations/zh-Hans.xliff
+$(SRCROOT)/Translations/zh-Hant.xliff
