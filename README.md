@@ -15,6 +15,10 @@ The name: "Kaya koma" means "it is not finished" in Shimaore (Mayotte) — a nod
 
 The sample document shown above is invented.
 
+## Download
+
+Download the latest version from the [Releases page](https://github.com/beeraw/kayakoma-editor/releases/latest), unzip it and move Kayakoma Editor to your Applications folder. The app is not notarized by Apple, so macOS blocks it the first time: click "Open Anyway" for Kayakoma Editor in System Settings > Privacy & Security (the release notes give the details).
+
 ## Features
 
 - Opens, edits and saves Markdown (`.md`, `.markdown`, `.mdown`, `.mkd`) and plain text (`.txt`) files, with the standard macOS document behavior: new documents, undo, autosave and versions.

@@ -538,12 +538,14 @@ final class EditorPanes: NSObject {
         }
     }
 
-    /// Largest scroll offset of the preview, from where its last block ends:
-    /// the text view's frame lags behind layout, so it is not used.
+    /// Largest scroll offset of the preview, from where its last block ends
+    /// plus the bottom margin: the text view's frame lags behind layout, so it
+    /// is not used.
     var previewMaxOffset: CGFloat {
         guard let textView = preview.contentTextView, let last = document.map({ $0.blocks.count - 1 }), last >= 0,
               let bottom = previewFrame(ofBlock: last)?.frame.maxY else { return 0 }
-        return max(0, bottom + textView.textContainerOrigin.y - previewVisibleHeight)
+        let end = bottom + textView.textContainerOrigin.y + textView.textContainerInset.height
+        return max(0, end - previewVisibleHeight)
     }
 
     /// Largest scroll offset of the source, from where its last line ends.

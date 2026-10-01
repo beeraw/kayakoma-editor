@@ -1,0 +1,126 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to build, for example 1.2.0 (uploaded as a workflow artifact, no release is created)
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+env:
+  SCHEME: Editor
+  APP_NAME: Kayakoma Editor
+  ASSET_PREFIX: Kayakoma-Editor
+
+jobs:
+  release:
+    name: Build and publish
+    # The app needs the macOS 26 SDK, which ships with Xcode 26.
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Resolve the version
+        id: version
+        env:
+          INPUT_VERSION: ${{ inputs.version }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+            version="${GITHUB_REF_NAME#v}"
+          else
+            version="${INPUT_VERSION#v}"
+          fi
+          if ! printf '%s' "$version" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$'; then
+            echo "::error::Invalid version '$version' (expected X.Y.Z)."
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Version $version, build $GITHUB_RUN_NUMBER"
+
+      - name: Select Xcode
+        run: |
+          # Newest stable Xcode 26 or later installed on the runner.
+          best=$(ls -d /Applications/Xcode_*.app 2>/dev/null \
+            | sed -E 's#^/Applications/Xcode_(.*)\.app$#\1#' \
+            | grep -E '^[0-9]+(\.[0-9]+)*$' \
+            | awk -F. '$1 >= 26' \
+            | sort -t. -k1,1n -k2,2n -k3,3n \
+            | tail -n 1)
+          if [ -z "$best" ]; then
+            echo "::error::No Xcode 26 or later on this runner; the app needs the macOS 26 SDK."
+            ls -d /Applications/Xcode*.app || true
+            exit 1
+          fi
+          sudo xcode-select --switch "/Applications/Xcode_$best.app"
+          xcodebuild -version
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate the Xcode project
+        run: xcodegen generate
+
+      - name: Build
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          xcodebuild \
+            -scheme "$SCHEME" \
+            -configuration Release \
+            -destination 'generic/platform=macOS' \
+            -derivedDataPath "$RUNNER_TEMP/DerivedData" \
+            CODE_SIGN_IDENTITY=- \
+            MARKETING_VERSION="$VERSION" \
+            CURRENT_PROJECT_VERSION="$GITHUB_RUN_NUMBER" \
+            build
+
+      - name: Check the signature and package
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          app="$RUNNER_TEMP/DerivedData/Build/Products/Release/$APP_NAME.app"
+          codesign --verify --deep --strict --verbose=2 "$app"
+          codesign --display --verbose=2 "$app" 2>&1 | grep -E '^(Identifier|Signature|Format)'
+          built=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Contents/Info.plist")
+          if [ "$built" != "$VERSION" ]; then
+            echo "::error::The app reports version $built instead of $VERSION."
+            exit 1
+          fi
+          mkdir -p dist
+          zip="$ASSET_PREFIX-$VERSION.zip"
+          ditto -c -k --keepParent "$app" "dist/$zip"
+          (cd dist && shasum -a 256 "$zip" > "$zip.sha256")
+          cat "dist/$zip.sha256"
+
+      - name: Upload the build
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.ASSET_PREFIX }}-${{ steps.version.outputs.version }}
+          path: dist/
+          if-no-files-found: error
+
+      - name: Create the GitHub release
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          zip="$ASSET_PREFIX-$VERSION.zip"
+          sha=$(cut -d ' ' -f 1 "dist/$zip.sha256")
+          sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{SHA256}}/$sha/g" -e "s/{{ASSET}}/$zip/g" \
+            .github/release-notes.md > "$RUNNER_TEMP/release-notes.md"
+          prerelease=""
+          case "$VERSION" in *-*) prerelease="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" "dist/$zip" "dist/$zip.sha256" \
+            --repo "$GITHUB_REPOSITORY" \
+            --verify-tag \
+            --title "$APP_NAME $VERSION" \
+            --notes-file "$RUNNER_TEMP/release-notes.md" \
+            --generate-notes \
+            $prerelease
