@@ -157,6 +157,11 @@
         <target state="needs-review-translation">화면 모드</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ardoise" xml:space="preserve">
+        <source>Ardoise</source>
+        <target state="needs-review-translation">슬레이트</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Aucun dossier" xml:space="preserve">
         <source>Aucun dossier</source>
         <target state="needs-review-translation">폴더 없음</target>
@@ -277,6 +282,11 @@
         <target state="needs-review-translation">클립보드에 복사됨</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Corail" xml:space="preserve">
+        <source>Corail</source>
+        <target state="needs-review-translation">코럴</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Créer le fichier" xml:space="preserve">
         <source>Créer le fichier</source>
         <target state="needs-review-translation">파일 만들기</target>
@@ -285,6 +295,11 @@
       <trans-unit id="Côte à côte" xml:space="preserve">
         <source>Côte à côte</source>
         <target state="needs-review-translation">나란히</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dactylo" xml:space="preserve">
+        <source>Dactylo</source>
+        <target state="needs-review-translation">타자기</target>
         <note/>
       </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
@@ -405,6 +420,11 @@
       <trans-unit id="Exporter en PDF…" xml:space="preserve">
         <source>Exporter en PDF…</source>
         <target state="needs-review-translation">PDF로 내보내기…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fenêtre" xml:space="preserve">
+        <source>Fenêtre</source>
+        <target state="needs-review-translation">윈도우</target>
         <note/>
       </trans-unit>
       <trans-unit id="Fermer" xml:space="preserve">
@@ -575,6 +595,11 @@
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="needs-review-translation">km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lagon" xml:space="preserve">
+        <source>Lagon</source>
+        <target state="needs-review-translation">라군</target>
         <note/>
       </trans-unit>
       <trans-unit id="Langage inconnu : bloc avec son étiquette, sans coloration." xml:space="preserve">
@@ -897,6 +922,26 @@
         <target state="needs-review-translation">문서에서 찾기</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Rechercher et remplacer…" xml:space="preserve">
+        <source>Rechercher et remplacer…</source>
+        <target state="needs-review-translation">검색 및 대치…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le précédent" xml:space="preserve">
+        <source>Rechercher le précédent</source>
+        <target state="needs-review-translation">이전 검색</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le suivant" xml:space="preserve">
+        <source>Rechercher le suivant</source>
+        <target state="needs-review-translation">다음 검색</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher…" xml:space="preserve">
+        <source>Rechercher…</source>
+        <target state="needs-review-translation">검색…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rendu" xml:space="preserve">
         <source>Rendu</source>
         <target state="needs-review-translation">미리보기</target>
@@ -1110,6 +1155,11 @@
       <trans-unit id="Un élément nommé « %@ » existe déjà dans « %@ »." xml:space="preserve">
         <source>Un élément nommé « %1$@ » existe déjà dans « %2$@ ».</source>
         <target state="needs-review-translation">“%2$@”에 “%1$@” 이름의 항목이 이미 있습니다.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Utiliser la sélection pour rechercher" xml:space="preserve">
+        <source>Utiliser la sélection pour rechercher</source>
+        <target state="needs-review-translation">선택 부분으로 검색</target>
         <note/>
       </trans-unit>
       <trans-unit id="Valeur" xml:space="preserve">

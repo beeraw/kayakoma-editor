@@ -149,7 +149,7 @@ struct SettingsView: View {
 
             SoftSectionHeader(Text("Thème du rendu"))
             SoftGroup(padding: EdgeInsets(top: 10, leading: 10, bottom: 2, trailing: 10)) {
-                ThemeSwatches(entries: library.entries, selection: $themeID)
+                ThemeSwatches(entries: library.entries, selection: $themeID, columns: 6, tileWidth: 76)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 4)
                 SoftRow(Text("Thème personnalisé"), help: Text("Fichier JSON partiel, complété par le thème par défaut")) {
@@ -184,7 +184,9 @@ struct SettingsView: View {
                         .labelsHidden()
                         .controlSize(.small)
                         .frame(width: 140)
-                        Text("\(Int(maxLineCharacters)) car.")
+                        (maxLineCharacters >= Preferences.unlimitedLineCharacters
+                            ? Text("Fenêtre")
+                            : Text("\(Int(maxLineCharacters)) car."))
                             .font(.system(size: 12))
                             .monospacedDigit()
                             .foregroundStyle(SoftColor.secondaryLabel)

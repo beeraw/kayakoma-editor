@@ -31,8 +31,82 @@ extension Theme {
         return theme
     }()
 
+    /// Cool blue-grey, in the system face, with striped tables.
+    static let slate: Theme = {
+        var theme = Theme.editorDefault
+        theme.backgroundColor = .custom(light: "#F5F7FA", dark: "#1B2027")
+        theme.textColor = .custom(light: "#25303B", dark: "#D5DCE5")
+        theme.secondaryTextColor = .custom(light: "#66727F", dark: "#94A0AE")
+        theme.codeBackgroundColor = .custom(light: "#E9EDF2", dark: "#262D36")
+        theme.quoteBarColor = .custom(light: "#B4C0CD", dark: "#46525F")
+        theme.ruleColor = .custom(light: "#DCE2E9", dark: "#323A45")
+        theme.tableBorderColor = .custom(light: "#DCE2E9", dark: "#323A45")
+        theme.tableHeaderBackgroundColor = .custom(light: "#E9EDF2", dark: "#262D36")
+        theme.tableAlternateRowBackgroundColor = .custom(light: "#EFF2F6", dark: "#20262E")
+        return theme
+    }()
+
+    /// Pale sea green and a serif face, with lagoon links.
+    static let lagoon: Theme = {
+        var theme = Theme.editorDefault
+        theme.fontFamily = "Charter"
+        theme.linkColor = .custom(light: "#2C8A84", dark: "#7FD0C6")
+        theme.backgroundColor = .custom(light: "#F2F8F6", dark: "#14201E")
+        theme.textColor = .custom(light: "#1F3532", dark: "#D6E6E2")
+        theme.secondaryTextColor = .custom(light: "#5E7773", dark: "#8FA9A4")
+        theme.codeBackgroundColor = .custom(light: "#E2EFEB", dark: "#1E2D2A")
+        theme.quoteBarColor = .custom(light: "#7FBDB4", dark: "#3F7A72")
+        theme.ruleColor = .custom(light: "#CFE2DD", dark: "#2A3D39")
+        theme.tableBorderColor = .custom(light: "#CFE2DD", dark: "#2A3D39")
+        theme.tableHeaderBackgroundColor = .custom(light: "#E2EFEB", dark: "#1E2D2A")
+        return theme
+    }()
+
+    /// Pale peach and a geometric sans-serif face, with coral links.
+    static let coral: Theme = {
+        var theme = Theme.editorDefault
+        theme.fontFamily = "Avenir Next"
+        theme.linkColor = .custom(light: "#C95A45", dark: "#F29A86")
+        theme.backgroundColor = .custom(light: "#FFF7F3", dark: "#231A17")
+        theme.textColor = .custom(light: "#3A2620", dark: "#EFE1DB")
+        theme.secondaryTextColor = .custom(light: "#84685E", dark: "#B59F97")
+        theme.codeBackgroundColor = .custom(light: "#FBEAE3", dark: "#30231F")
+        theme.quoteBarColor = .custom(light: "#E9A493", dark: "#8E5547")
+        theme.ruleColor = .custom(light: "#F3DCD3", dark: "#40302A")
+        theme.tableBorderColor = .custom(light: "#F3DCD3", dark: "#40302A")
+        theme.tableHeaderBackgroundColor = .custom(light: "#FBEAE3", dark: "#30231F")
+        return theme
+    }()
+
+    /// A draft on a typewriter: a fixed-pitch face throughout, neutral grey,
+    /// headings close to the body size.
+    static let typewriter: Theme = {
+        var theme = Theme.editorDefault
+        theme.fontFamily = "Menlo"
+        theme.codeFontFamily = "Menlo"
+        theme.lineHeightMultiple = 1.35
+        theme.headings = Theme.HeadingStyles(
+            level1: Theme.HeadingStyle(size: 22, weight: .bold, spacingBefore: 20),
+            level2: Theme.HeadingStyle(size: 18, weight: .bold, spacingBefore: 18),
+            level3: Theme.HeadingStyle(size: 16, weight: .bold, spacingBefore: 14),
+            level4: Theme.HeadingStyle(size: 14, weight: .bold, spacingBefore: 12),
+            level5: Theme.HeadingStyle(size: 14, weight: .semibold, spacingBefore: 10),
+            level6: Theme.HeadingStyle(size: 13, weight: .semibold, spacingBefore: 10)
+        )
+        theme.backgroundColor = .custom(light: "#F6F5F1", dark: "#1D1D1B")
+        theme.textColor = .custom(light: "#2B2B28", dark: "#DCDBD5")
+        theme.secondaryTextColor = .custom(light: "#6F6E68", dark: "#9C9B94")
+        theme.codeBackgroundColor = .custom(light: "#EAE8E1", dark: "#2A2A27")
+        theme.quoteBarColor = .custom(light: "#B9B6AB", dark: "#55544E")
+        theme.ruleColor = .custom(light: "#DDDAD0", dark: "#3A3A36")
+        theme.tableBorderColor = .custom(light: "#DDDAD0", dark: "#3A3A36")
+        theme.tableHeaderBackgroundColor = .custom(light: "#EAE8E1", dark: "#2A2A27")
+        return theme
+    }()
+
     /// The theme with the reading settings applied over it: body size (code
-    /// and headings scaled in proportion) and a column width in characters.
+    /// and headings scaled in proportion) and a column width in characters,
+    /// unlimited at the top of its range.
     func applyingReadingSettings(fontSize: Double, maxLineCharacters: Double) -> Theme {
         var theme = self
         let size = CGFloat(fontSize)
@@ -43,7 +117,9 @@ extension Theme {
             theme.headings[level: level].size = (headings[level: level].size * factor * 2).rounded() / 2
         }
         // An average character of body text is about half an em wide.
-        theme.maxLineWidth = (CGFloat(maxLineCharacters) * size * 0.5).rounded()
+        theme.maxLineWidth = maxLineCharacters >= Preferences.unlimitedLineCharacters
+            ? nil
+            : (CGFloat(maxLineCharacters) * size * 0.5).rounded()
         return theme
     }
 }
@@ -79,6 +155,10 @@ final class ThemeLibrary {
 
     static let defaultID = "builtin.default"
     static let paperID = "builtin.paper"
+    static let slateID = "builtin.slate"
+    static let lagoonID = "builtin.lagoon"
+    static let coralID = "builtin.coral"
+    static let typewriterID = "builtin.typewriter"
 
     private(set) var entries: [ThemeEntry] = []
 
@@ -93,6 +173,10 @@ final class ThemeLibrary {
         [
             ThemeEntry(id: Self.defaultID, name: String(localized: "Par défaut"), source: .builtIn, result: .success(.editorDefault)),
             ThemeEntry(id: Self.paperID, name: String(localized: "Papier"), source: .builtIn, result: .success(.paper)),
+            ThemeEntry(id: Self.slateID, name: String(localized: "Ardoise"), source: .builtIn, result: .success(.slate)),
+            ThemeEntry(id: Self.lagoonID, name: String(localized: "Lagon"), source: .builtIn, result: .success(.lagoon)),
+            ThemeEntry(id: Self.coralID, name: String(localized: "Corail"), source: .builtIn, result: .success(.coral)),
+            ThemeEntry(id: Self.typewriterID, name: String(localized: "Dactylo"), source: .builtIn, result: .success(.typewriter)),
         ]
     }
 

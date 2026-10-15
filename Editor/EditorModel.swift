@@ -190,7 +190,11 @@ final class EditorModel {
     // MARK: Actions
 
     func showFindBar() {
-        panesIfLoaded?.showFindBar()
+        performFind(.showFindInterface)
+    }
+
+    func performFind(_ action: NSTextFinder.Action) {
+        panesIfLoaded?.performFind(action)
     }
 
     func exportPDF(theme: Theme, baseURL: URL?, fileName: String) {

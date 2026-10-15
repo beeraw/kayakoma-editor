@@ -25,7 +25,9 @@ enum Preferences {
     static let defaultFontSize: Double = 14
     static let fontSizeRange: ClosedRange<Double> = 10...28
     static let defaultMaxLineCharacters: Double = 90
-    static let maxLineCharactersRange: ClosedRange<Double> = 50...140
+    /// The top of the range lifts the limit: the text fills the window.
+    static let unlimitedLineCharacters: Double = 145
+    static let maxLineCharactersRange: ClosedRange<Double> = 50...unlimitedLineCharacters
     static let defaultSourceFontSize: Double = 13
     static let sourceFontSizeRange: ClosedRange<Double> = 9...24
 }

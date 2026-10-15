@@ -708,12 +708,15 @@ final class EditorPanes: NSObject {
         return candidate.isDescendant(of: view)
     }
 
-    /// Opens the find bar of the pane being read: the source, or the preview when it is alone.
-    func showFindBar() {
+    /// Sends a find action (show the find bar, next match…) to the pane being
+    /// read: the source, or the preview when it is alone.
+    func performFind(_ action: NSTextFinder.Action) {
         let target: NSTextView = layout == .preview ? (preview.contentTextView ?? sourceView) : sourceView
-        target.window?.makeFirstResponder(target)
+        if action == .showFindInterface || action == .showReplaceInterface {
+            target.window?.makeFirstResponder(target)
+        }
         let item = NSMenuItem()
-        item.tag = NSTextFinder.Action.showFindInterface.rawValue
+        item.tag = action.rawValue
         target.performTextFinderAction(item)
     }
 

@@ -284,6 +284,23 @@ final class PanesTests: XCTestCase {
         assertPanesBelowChrome(panes, in: window, "after the tab bar left")
     }
 
+    /// Find opens in the source, or in the preview when it is alone.
+    func testFindOpensInThePaneBeingRead() throws {
+        let panes = EditorPanes(text: Self.unevenDocument)
+        let window = chromeWindow(content: panes.rootView)
+        defer { window.close() }
+        panes.show(RenderedDocument(source: panes.text))
+        let previewScrollView = try XCTUnwrap(panes.preview.contentTextView?.enclosingScrollView)
+        panes.performFind(.showFindInterface)
+        RunLoop.main.run(until: Date().addingTimeInterval(0.3))
+        XCTAssertTrue(panes.sourceScrollView.isFindBarVisible)
+        XCTAssertFalse(previewScrollView.isFindBarVisible)
+        panes.layout = .preview
+        panes.performFind(.showFindInterface)
+        RunLoop.main.run(until: Date().addingTimeInterval(0.3))
+        XCTAssertTrue(previewScrollView.isFindBarVisible)
+    }
+
     /// The hosting view sizes the panes to the safe area itself, as in the app.
     func testHostedPanesStayBelowTheTabBar() throws {
         let model = EditorModel(document: MarkdownDocument(text: Self.unevenDocument))

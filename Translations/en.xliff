@@ -172,6 +172,11 @@
         <target state="translated">Appearance</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ardoise" xml:space="preserve">
+        <source>Ardoise</source>
+        <target state="translated">Slate</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Aucun dossier" xml:space="preserve">
         <source>Aucun dossier</source>
         <target state="translated">No Folder</target>
@@ -292,6 +297,11 @@
         <target state="translated">Copied to the clipboard</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Corail" xml:space="preserve">
+        <source>Corail</source>
+        <target state="translated">Coral</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Créer le fichier" xml:space="preserve">
         <source>Créer le fichier</source>
         <target state="translated">Create File</target>
@@ -300,6 +310,11 @@
       <trans-unit id="Côte à côte" xml:space="preserve">
         <source>Côte à côte</source>
         <target state="translated">Side by Side</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dactylo" xml:space="preserve">
+        <source>Dactylo</source>
+        <target state="translated">Typewriter</target>
         <note/>
       </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
@@ -420,6 +435,11 @@
       <trans-unit id="Exporter en PDF…" xml:space="preserve">
         <source>Exporter en PDF…</source>
         <target state="translated">Export as PDF…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fenêtre" xml:space="preserve">
+        <source>Fenêtre</source>
+        <target state="translated">Window</target>
         <note/>
       </trans-unit>
       <trans-unit id="Fermer" xml:space="preserve">
@@ -590,6 +610,11 @@
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="translated">Km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lagon" xml:space="preserve">
+        <source>Lagon</source>
+        <target state="translated">Lagoon</target>
         <note/>
       </trans-unit>
       <trans-unit id="Langage inconnu : bloc avec son étiquette, sans coloration." xml:space="preserve">
@@ -912,6 +937,26 @@
         <target state="translated">Find in the document</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Rechercher et remplacer…" xml:space="preserve">
+        <source>Rechercher et remplacer…</source>
+        <target state="translated">Find and Replace…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le précédent" xml:space="preserve">
+        <source>Rechercher le précédent</source>
+        <target state="translated">Find Previous</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le suivant" xml:space="preserve">
+        <source>Rechercher le suivant</source>
+        <target state="translated">Find Next</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher…" xml:space="preserve">
+        <source>Rechercher…</source>
+        <target state="translated">Find…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rendu" xml:space="preserve">
         <source>Rendu</source>
         <target state="translated">Preview</target>
@@ -1125,6 +1170,11 @@
       <trans-unit id="Un élément nommé « %@ » existe déjà dans « %@ »." xml:space="preserve">
         <source>Un élément nommé « %1$@ » existe déjà dans « %2$@ ».</source>
         <target state="translated">An item named “%1$@” already exists in “%2$@”.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Utiliser la sélection pour rechercher" xml:space="preserve">
+        <source>Utiliser la sélection pour rechercher</source>
+        <target state="translated">Use Selection for Find</target>
         <note/>
       </trans-unit>
       <trans-unit id="Valeur" xml:space="preserve">

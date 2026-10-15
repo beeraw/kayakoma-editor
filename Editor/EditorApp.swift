@@ -94,8 +94,8 @@ enum FolderKeys {
     }
 }
 
-/// Menu bar additions: Export as PDF in the File menu; layout, scroll sync
-/// and status bar in the View menu.
+/// Menu bar additions: Export as PDF in the File menu; Find in the Edit menu;
+/// layout, scroll sync and status bar in the View menu.
 struct EditorCommands: Commands {
     @FocusedValue(\.editorModel) private var model
     @FocusedValue(\.exportPDF) private var exportPDF
@@ -106,6 +106,24 @@ struct EditorCommands: Commands {
             Button("Exporter en PDF…") { exportPDF?() }
                 .keyboardShortcut("e", modifiers: [.command, .option])
                 .disabled(exportPDF == nil)
+        }
+
+        // ⌥⌘F filters the files of a folder, so Find and Replace has no shortcut.
+        CommandGroup(after: .pasteboard) {
+            Divider()
+            Menu("Rechercher") {
+                Button("Rechercher…") { model?.performFind(.showFindInterface) }
+                    .keyboardShortcut("f")
+                Button("Rechercher et remplacer…") { model?.performFind(.showReplaceInterface) }
+                    .disabled(model?.layout == .preview)
+                Button("Rechercher le suivant") { model?.performFind(.nextMatch) }
+                    .keyboardShortcut("g")
+                Button("Rechercher le précédent") { model?.performFind(.previousMatch) }
+                    .keyboardShortcut("g", modifiers: [.command, .shift])
+                Button("Utiliser la sélection pour rechercher") { model?.performFind(.setSearchString) }
+                    .keyboardShortcut("e")
+            }
+            .disabled(model == nil)
         }
 
         CommandGroup(before: .toolbar) {

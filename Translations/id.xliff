@@ -157,6 +157,11 @@
         <target state="needs-review-translation">Tampilan</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ardoise" xml:space="preserve">
+        <source>Ardoise</source>
+        <target state="needs-review-translation">Batu Sabak</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Aucun dossier" xml:space="preserve">
         <source>Aucun dossier</source>
         <target state="needs-review-translation">Tidak Ada Folder</target>
@@ -277,6 +282,11 @@
         <target state="needs-review-translation">Disalin ke papan klip</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Corail" xml:space="preserve">
+        <source>Corail</source>
+        <target state="needs-review-translation">Karang</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Créer le fichier" xml:space="preserve">
         <source>Créer le fichier</source>
         <target state="needs-review-translation">Buat File</target>
@@ -285,6 +295,11 @@
       <trans-unit id="Côte à côte" xml:space="preserve">
         <source>Côte à côte</source>
         <target state="needs-review-translation">Berdampingan</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dactylo" xml:space="preserve">
+        <source>Dactylo</source>
+        <target state="needs-review-translation">Mesin Tik</target>
         <note/>
       </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
@@ -405,6 +420,11 @@
       <trans-unit id="Exporter en PDF…" xml:space="preserve">
         <source>Exporter en PDF…</source>
         <target state="needs-review-translation">Ekspor sebagai PDF…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fenêtre" xml:space="preserve">
+        <source>Fenêtre</source>
+        <target state="needs-review-translation">Jendela</target>
         <note/>
       </trans-unit>
       <trans-unit id="Fermer" xml:space="preserve">
@@ -575,6 +595,11 @@
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="needs-review-translation">Km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lagon" xml:space="preserve">
+        <source>Lagon</source>
+        <target state="needs-review-translation">Laguna</target>
         <note/>
       </trans-unit>
       <trans-unit id="Langage inconnu : bloc avec son étiquette, sans coloration." xml:space="preserve">
@@ -897,6 +922,26 @@
         <target state="needs-review-translation">Cari di dokumen</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Rechercher et remplacer…" xml:space="preserve">
+        <source>Rechercher et remplacer…</source>
+        <target state="needs-review-translation">Cari dan Ganti…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le précédent" xml:space="preserve">
+        <source>Rechercher le précédent</source>
+        <target state="needs-review-translation">Cari Sebelumnya</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le suivant" xml:space="preserve">
+        <source>Rechercher le suivant</source>
+        <target state="needs-review-translation">Cari Berikutnya</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher…" xml:space="preserve">
+        <source>Rechercher…</source>
+        <target state="needs-review-translation">Cari…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rendu" xml:space="preserve">
         <source>Rendu</source>
         <target state="needs-review-translation">Pratinjau</target>
@@ -1110,6 +1155,11 @@
       <trans-unit id="Un élément nommé « %@ » existe déjà dans « %@ »." xml:space="preserve">
         <source>Un élément nommé « %1$@ » existe déjà dans « %2$@ ».</source>
         <target state="needs-review-translation">Item bernama “%1$@” sudah ada di “%2$@”.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Utiliser la sélection pour rechercher" xml:space="preserve">
+        <source>Utiliser la sélection pour rechercher</source>
+        <target state="needs-review-translation">Gunakan Pilihan untuk Mencari</target>
         <note/>
       </trans-unit>
       <trans-unit id="Valeur" xml:space="preserve">

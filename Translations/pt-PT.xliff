@@ -172,6 +172,11 @@
         <target state="needs-review-translation">Aspeto</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ardoise" xml:space="preserve">
+        <source>Ardoise</source>
+        <target state="needs-review-translation">Ardósia</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Aucun dossier" xml:space="preserve">
         <source>Aucun dossier</source>
         <target state="needs-review-translation">Nenhuma pasta</target>
@@ -292,6 +297,11 @@
         <target state="needs-review-translation">Copiado para a área de transferência</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Corail" xml:space="preserve">
+        <source>Corail</source>
+        <target state="needs-review-translation">Coral</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Créer le fichier" xml:space="preserve">
         <source>Créer le fichier</source>
         <target state="needs-review-translation">Criar ficheiro</target>
@@ -300,6 +310,11 @@
       <trans-unit id="Côte à côte" xml:space="preserve">
         <source>Côte à côte</source>
         <target state="needs-review-translation">Lado a lado</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Dactylo" xml:space="preserve">
+        <source>Dactylo</source>
+        <target state="needs-review-translation">Máquina de escrever</target>
         <note/>
       </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
@@ -420,6 +435,11 @@
       <trans-unit id="Exporter en PDF…" xml:space="preserve">
         <source>Exporter en PDF…</source>
         <target state="needs-review-translation">Exportar como PDF…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Fenêtre" xml:space="preserve">
+        <source>Fenêtre</source>
+        <target state="needs-review-translation">Janela</target>
         <note/>
       </trans-unit>
       <trans-unit id="Fermer" xml:space="preserve">
@@ -590,6 +610,11 @@
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="needs-review-translation">Km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Lagon" xml:space="preserve">
+        <source>Lagon</source>
+        <target state="needs-review-translation">Lagoa</target>
         <note/>
       </trans-unit>
       <trans-unit id="Langage inconnu : bloc avec son étiquette, sans coloration." xml:space="preserve">
@@ -912,6 +937,26 @@
         <target state="needs-review-translation">Pesquisar no documento</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Rechercher et remplacer…" xml:space="preserve">
+        <source>Rechercher et remplacer…</source>
+        <target state="needs-review-translation">Pesquisar e substituir…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le précédent" xml:space="preserve">
+        <source>Rechercher le précédent</source>
+        <target state="needs-review-translation">Pesquisar anterior</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher le suivant" xml:space="preserve">
+        <source>Rechercher le suivant</source>
+        <target state="needs-review-translation">Pesquisar seguinte</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher…" xml:space="preserve">
+        <source>Rechercher…</source>
+        <target state="needs-review-translation">Pesquisar…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rendu" xml:space="preserve">
         <source>Rendu</source>
         <target state="needs-review-translation">Pré-visualização</target>
@@ -1125,6 +1170,11 @@
       <trans-unit id="Un élément nommé « %@ » existe déjà dans « %@ »." xml:space="preserve">
         <source>Un élément nommé « %1$@ » existe déjà dans « %2$@ ».</source>
         <target state="needs-review-translation">Já existe um item com o nome «%1$@» em «%2$@».</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Utiliser la sélection pour rechercher" xml:space="preserve">
+        <source>Utiliser la sélection pour rechercher</source>
+        <target state="needs-review-translation">Usar seleção para pesquisar</target>
         <note/>
       </trans-unit>
       <trans-unit id="Valeur" xml:space="preserve">
