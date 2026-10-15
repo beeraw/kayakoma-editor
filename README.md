@@ -19,6 +19,8 @@ The sample document shown above is invented.
 
 Download the latest version from the [Releases page](https://github.com/beeraw/kayakoma-editor/releases/latest), unzip it and move Kayakoma Editor to your Applications folder. The app is not notarized by Apple, so macOS blocks it the first time: click "Open Anyway" for Kayakoma Editor in System Settings > Privacy & Security (the release notes give the details).
 
+From version 1.1.0, the app keeps itself up to date: see [Updates](#updates).
+
 ## Features
 
 - Opens, edits and saves Markdown (`.md`, `.markdown`, `.mdown`, `.mkd`) and plain text (`.txt`) files, with the standard macOS document behavior: new documents, undo, autosave and versions.
@@ -31,13 +33,21 @@ Download the latest version from the [Releases page](https://github.com/beeraw/k
 - Status bar with the word and character counts, the line and column, the sync state, and the file's format and encoding. View > Hide Status Bar (Command-/) hides it.
 - Find in the document (Command-F).
 - PDF export in A4 or US Letter, with real text and clickable links (File > Export as PDF…, Option-Command-E).
-- Themes: two built in (Default and Paper) plus your own JSON files, see [Themes](#themes).
+- Themes: six built in (Default, Paper, Slate, Lagoon, Coral and Typewriter) plus your own JSON files, see [Themes](#themes).
 - Auto / Light / Dark appearance, text size and line width of the rendered document, and font size of the source, in the settings (Command-comma).
 - The file is reloaded when it changes on disk and the window has no unsaved changes. With unsaved changes, saving shows the system's conflict dialog.
 - Encodings are preserved: a file read as UTF-8 (with or without BOM) or UTF-16 with a BOM is written back the same way, with its original line endings (LF or CRLF). A file that is not valid UTF-8 is read as Windows-1252, then as ISO Latin-1, and written back in that encoding; if the text can no longer be represented in it, the file is saved as UTF-8 and the status bar says so beforehand.
 - Relative images and links are resolved from the document's folder. Remote images are not loaded.
 - Kayakoma Viewer's "Modifier" (Edit) button, and its Open in Editor command (Command-E), open the current file in Kayakoma Editor.
-- Interface in French and English.
+- Interface in 13 languages, see [Translations](#translations).
+
+## Updates
+
+From version 1.1.0, the app checks for a new version when it opens, then once a day. When one is found, a window shows what is new and offers to install it, and the app relaunches by itself. Nothing is installed without asking unless "Download and Install Without Asking" is turned on in Settings > Updates, where the checks can also be turned off. Kayakoma Editor > Check for Updates… looks for one at any time.
+
+The checks only connect to github.com, to read the feed of the latest release and download the update; nothing about you or your files is sent. Each update is verified with an EdDSA signature before it is installed, and installing it this way does not bring back the "Open Anyway" step. Updates are done with [Sparkle](https://sparkle-project.org).
+
+Version 1.0.0 does not update itself: install 1.1.0 by hand once.
 
 ## Requirements
 

@@ -10,6 +10,7 @@ struct EditorApp: App {
             DocumentWindow(document: file.document, fileURL: file.fileURL)
         }
         .commands {
+            UpdateCommands(model: .shared)
             EditorCommands()
             FolderCommands()
             MarkdownHelpCommands()
@@ -34,6 +35,11 @@ struct EditorApp: App {
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     private var keyMonitor: Any?
+    private var updater: SparkleUpdater?
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        updater = SparkleUpdater(model: .shared, accent: .coral, notesTheme: .editorDefault)
+    }
 
     func applicationWillFinishLaunching(_ notification: Notification) {
         AppearanceMode.applyStored()

@@ -102,15 +102,17 @@ struct AppearanceSwitcher: View {
 /// A row with a switch on the right; the row's title is the switch's label.
 struct SoftToggleRow: View {
     let title: Text
+    var help: Text?
     @Binding var isOn: Bool
 
-    init(_ title: Text, isOn: Binding<Bool>) {
+    init(_ title: Text, help: Text? = nil, isOn: Binding<Bool>) {
         self.title = title
+        self.help = help
         _isOn = isOn
     }
 
     var body: some View {
-        SoftRow(title, announcesTitle: false) {
+        SoftRow(title, help: help, announcesTitle: false) {
             Toggle(isOn: $isOn) { title }
                 .toggleStyle(.switch)
                 .controlSize(.small)
@@ -220,6 +222,8 @@ struct SettingsView: View {
                 SoftRowDivider()
                 SoftToggleRow(Text("Signaler les liens cassés"), isOn: $marksBrokenLinks)
             }
+
+            UpdateSettingsSection(model: .shared)
         }
         .padding(EdgeInsets(top: 6, leading: 20, bottom: 20, trailing: 20))
         .frame(width: 540)

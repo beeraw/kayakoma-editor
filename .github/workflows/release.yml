@@ -98,6 +98,67 @@ jobs:
           (cd dist && shasum -a 256 "$zip" > "$zip.sha256")
           cat "dist/$zip.sha256"
 
+      - name: Extract the release notes
+        id: notes
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          # The section "## <version>" of CHANGELOG.md, up to the next section.
+          awk -v version="$VERSION" '
+            /^## / { if (found) exit; found = ($2 == version); next }
+            found { print }
+          ' CHANGELOG.md | sed -e '/./,$!d' > "$RUNNER_TEMP/whats-new.md"
+          if [ ! -s "$RUNNER_TEMP/whats-new.md" ]; then
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              echo "::error::CHANGELOG.md has no section for $VERSION: the update window would show no notes."
+              exit 1
+            fi
+            echo "::warning::CHANGELOG.md has no section for $VERSION."
+          fi
+          cat "$RUNNER_TEMP/whats-new.md"
+
+      - name: Sign the update and write the appcast
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          SPARKLE_ED_PRIVATE_KEY: ${{ secrets.SPARKLE_ED_PRIVATE_KEY }}
+        run: |
+          zip="$ASSET_PREFIX-$VERSION.zip"
+          if [ -z "$SPARKLE_ED_PRIVATE_KEY" ]; then
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              echo "::error::The SPARKLE_ED_PRIVATE_KEY secret is missing: the apps would refuse an unsigned update."
+              exit 1
+            fi
+            echo "::warning::No SPARKLE_ED_PRIVATE_KEY secret: no appcast for this trial build."
+            exit 0
+          fi
+          sign_update="$RUNNER_TEMP/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin/sign_update"
+          signature=$(printf '%s' "$SPARKLE_ED_PRIVATE_KEY" | "$sign_update" --ed-key-file - -p "dist/$zip")
+          length=$(stat -f %z "dist/$zip")
+          url="https://github.com/$GITHUB_REPOSITORY/releases/download/v$VERSION/$zip"
+          python3 - "$APP_NAME" "$VERSION" "$GITHUB_RUN_NUMBER" "$url" "$length" "$signature" "$RUNNER_TEMP/whats-new.md" > dist/appcast.xml <<'EOF'
+          import sys
+          from email.utils import formatdate
+          from xml.sax.saxutils import escape
+          name, version, build, url, length, signature, notes_path = sys.argv[1:]
+          notes = open(notes_path, encoding="utf-8").read().strip().replace("]]>", "]]]]><![CDATA[>")
+          print(f"""<?xml version="1.0" encoding="utf-8"?>
+          <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+            <channel>
+              <title>{escape(name)}</title>
+              <item>
+                <title>{escape(name)} {escape(version)}</title>
+                <pubDate>{formatdate(usegmt=True)}</pubDate>
+                <sparkle:version>{escape(build)}</sparkle:version>
+                <sparkle:shortVersionString>{escape(version)}</sparkle:shortVersionString>
+                <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+                <description sparkle:format="plain-text"><![CDATA[{notes}]]></description>
+                <enclosure url="{escape(url)}" length="{escape(length)}" type="application/octet-stream" sparkle:edSignature="{escape(signature)}"/>
+              </item>
+            </channel>
+          </rss>""")
+          EOF
+          cat dist/appcast.xml
+
       - name: Upload the build
         uses: actions/upload-artifact@v7
         with:
@@ -113,11 +174,19 @@ jobs:
         run: |
           zip="$ASSET_PREFIX-$VERSION.zip"
           sha=$(cut -d ' ' -f 1 "dist/$zip.sha256")
-          sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{SHA256}}/$sha/g" -e "s/{{ASSET}}/$zip/g" \
-            .github/release-notes.md > "$RUNNER_TEMP/release-notes.md"
+          {
+            if [ -s "$RUNNER_TEMP/whats-new.md" ]; then
+              printf "## What's new\n\n"
+              cat "$RUNNER_TEMP/whats-new.md"
+              printf "\n"
+            fi
+            sed -e "s/{{VERSION}}/$VERSION/g" -e "s/{{SHA256}}/$sha/g" -e "s/{{ASSET}}/$zip/g" .github/release-notes.md
+          } > "$RUNNER_TEMP/release-notes.md"
+          # The apps read the appcast of the latest release; a prerelease never carries one.
           prerelease=""
-          case "$VERSION" in *-*) prerelease="--prerelease" ;; esac
-          gh release create "$GITHUB_REF_NAME" "dist/$zip" "dist/$zip.sha256" \
+          assets=("dist/$zip" "dist/$zip.sha256" "dist/appcast.xml")
+          case "$VERSION" in *-*) prerelease="--prerelease"; assets=("dist/$zip" "dist/$zip.sha256") ;; esac
+          gh release create "$GITHUB_REF_NAME" "${assets[@]}" \
             --repo "$GITHUB_REPOSITORY" \
             --verify-tag \
             --title "$APP_NAME $VERSION" \

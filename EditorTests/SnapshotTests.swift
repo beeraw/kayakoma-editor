@@ -143,6 +143,39 @@ final class SnapshotTests: XCTestCase {
         }
     }
 
+    /// The update window in each of its states.
+    func testUpdateWindow() throws {
+        let notes = """
+        ## Nouveautés
+
+        - **Rechercher et remplacer** dans la source.
+        - Quatre thèmes de rendu : Ardoise, Lagon, Corail, Dactylo.
+
+        ### Corrections
+
+        - La synchro du défilement suit mieux les tableaux.
+        """
+        let states: [(String, (UpdateModel) -> Void)] = [
+            ("found", { $0.showFound(.init(version: "1.2.0", notes: notes)) { _ in } }),
+            ("downloading", {
+                $0.showDownloadStarted {}
+                $0.setExpectedLength(8_200_000)
+                $0.addReceivedLength(5_100_000)
+            }),
+            ("ready", { $0.showReady { _ in } }),
+            ("failed", { $0.showFailed("Impossible de joindre le serveur.") {} }),
+        ]
+        for (name, show) in states {
+            let model = UpdateModel(currentVersion: "1.1.0")
+            model.releasesURL = URL(string: "https://example.com/releases")
+            show(model)
+            for dark in [false, true] {
+                try snapshotView(UpdateView(model: model, notesTheme: .editorDefault).environment(\.softAccent, .coral),
+                                 dark: dark, name: "update-\(name)-\(dark ? "dark" : "light")")
+            }
+        }
+    }
+
     /// Increase Contrast cannot be simulated offscreen: its appearances only
     /// serve for matching and cannot be created.
     static let appearances: [(NSAppearance.Name, String)] = [(.aqua, "light"), (.darkAqua, "dark")]

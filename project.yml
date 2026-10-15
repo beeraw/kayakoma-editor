@@ -12,6 +12,9 @@ packages:
   KayakomaKit:
     url: https://github.com/beeraw/kayakoma-kit.git
     from: 1.1.0
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    from: 2.10.0
 
 settings:
   base:
@@ -22,6 +25,11 @@ settings:
     CODE_SIGN_STYLE: Manual
     DEVELOPMENT_TEAM: ""
     ENABLE_HARDENED_RUNTIME: YES
+    # Public half of the key that signs updates (the private half is a secret
+    # of the release workflow).
+    SPARKLE_PUBLIC_ED_KEY: BBN18sSSgz/SFn3LJQKG5nkjLbJb24wnkvNgdoZk9w0=
+    # The appcast is a file of the latest release.
+    SPARKLE_FEED_URL: https://github.com/beeraw/kayakoma-editor/releases/latest/download/appcast.xml
 
 targets:
   Editor:
@@ -30,6 +38,7 @@ targets:
     sources: [Editor]
     dependencies:
       - package: KayakomaKit
+      - package: Sparkle
     # Writes Translations/*.xliff into the string catalog before it is
     # compiled. The script sandbox only lets it read the files it declares:
     # the XLIFF files come from Translations/Translations.xcfilelist, which
@@ -64,6 +73,15 @@ targets:
         # Images next to the edited file are read by path; the sandbox only
         # grants the file itself, so reading is allowed everywhere.
         com.apple.security.temporary-exception.files.absolute-path.read-only: ["/"]
+        # Updates: the app downloads them itself, and Sparkle's installer runs
+        # outside the sandbox through these two services.
+        com.apple.security.network.client: true
+        com.apple.security.temporary-exception.mach-lookup.global-name:
+          - $(PRODUCT_BUNDLE_IDENTIFIER)-spks
+          - $(PRODUCT_BUNDLE_IDENTIFIER)-spki
+        # Ad hoc signatures carry no team ID, and the hardened runtime's library
+        # validation would refuse the embedded Sparkle framework.
+        com.apple.security.cs.disable-library-validation: true
     info:
       path: Editor/Info.plist
       properties:
@@ -71,6 +89,12 @@ targets:
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSApplicationCategoryType: public.app-category.productivity
+        # Updates: checks start without asking, installing always asks.
+        SUFeedURL: $(SPARKLE_FEED_URL)
+        SUPublicEDKey: $(SPARKLE_PUBLIC_ED_KEY)
+        SUEnableInstallerLauncherService: true
+        SUEnableAutomaticChecks: true
+        SUVerifyUpdateBeforeExtraction: true
         CFBundleDocumentTypes:
           - CFBundleTypeName: Markdown
             CFBundleTypeRole: Editor
@@ -96,6 +120,7 @@ targets:
       - path: Editor
         excludes:
           - EditorApp.swift
+          - SparkleUpdater.swift
           - Info.plist
           - Editor.entitlements
           - AppIcon.icon

@@ -2,6 +2,21 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="Editor/Localizable.xcstrings" source-language="fr" target-language="ko" datatype="plaintext">
     <body>
+      <trans-unit id="%@ %@ est disponible" xml:space="preserve">
+        <source>%@ %@ est disponible</source>
+        <target state="needs-review-translation">%@ %@ 사용 가능</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ est à jour" xml:space="preserve">
+        <source>%@ est à jour</source>
+        <target state="needs-review-translation">%@은(는) 최신 상태입니다</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ sur %@" xml:space="preserve">
+        <source>%@ sur %@</source>
+        <target state="needs-review-translation">%@ / %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="%@ · Modifié" xml:space="preserve">
         <source>%@ · Modifié</source>
         <target state="needs-review-translation">%@ · 편집됨</target>
@@ -302,6 +317,11 @@
         <target state="needs-review-translation">타자기</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Dernière recherche : %@" xml:space="preserve">
+        <source>Dernière recherche : %@</source>
+        <target state="needs-review-translation">마지막 확인: %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
         <source>Disposition</source>
         <target state="needs-review-translation">레이아웃</target>
@@ -512,6 +532,11 @@
         <target state="needs-review-translation">HTML</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ignorer cette version" xml:space="preserve">
+        <source>Ignorer cette version</source>
+        <target state="needs-review-translation">이 버전 건너뛰기</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Il a peut-être été déplacé, renommé ou supprimé." xml:space="preserve">
         <source>Il a peut-être été déplacé, renommé ou supprimé.</source>
         <target state="needs-review-translation">이동, 이름 변경 또는 삭제되었을 수 있습니다.</target>
@@ -582,6 +607,26 @@
         <target state="needs-review-translation">들여쓰기</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Installation en quelques secondes ; l'appli se relance toute seule." xml:space="preserve">
+        <source>Installation en quelques secondes ; l'appli se relance toute seule.</source>
+        <target state="needs-review-translation">몇 초 만에 설치되며, 앱이 자동으로 다시 열립니다.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installer et relancer" xml:space="preserve">
+        <source>Installer et relancer</source>
+        <target state="needs-review-translation">설치 후 다시 열기</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installer quand l'appli sera quittée" xml:space="preserve">
+        <source>Installer quand l'appli sera quittée</source>
+        <target state="needs-review-translation">앱 종료 시 설치</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installée à la fermeture de l'appli" xml:space="preserve">
+        <source>Installée à la fermeture de l'appli</source>
+        <target state="needs-review-translation">앱 종료 시 설치됨</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Insérer" xml:space="preserve">
         <source>Insérer</source>
         <target state="needs-review-translation">삽입</target>
@@ -592,9 +637,34 @@
         <target state="needs-review-translation">기울임꼴</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Jamais recherchées" xml:space="preserve">
+        <source>Jamais recherchées</source>
+        <target state="needs-review-translation">확인한 적 없음</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="needs-review-translation">km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'appli se fermera, puis se relancera aussitôt." xml:space="preserve">
+        <source>L'appli se fermera, puis se relancera aussitôt.</source>
+        <target state="needs-review-translation">앱이 종료된 후 바로 다시 열립니다.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La mise à jour est prête" xml:space="preserve">
+        <source>La mise à jour est prête</source>
+        <target state="needs-review-translation">업데이트가 준비되었습니다</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La mise à jour n'a pas pu être installée" xml:space="preserve">
+        <source>La mise à jour n'a pas pu être installée</source>
+        <target state="needs-review-translation">업데이트를 설치할 수 없습니다</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La version %@ est la plus récente." xml:space="preserve">
+        <source>La version %@ est la plus récente.</source>
+        <target state="needs-review-translation">버전 %@이(가) 최신 버전입니다.</target>
         <note/>
       </trans-unit>
       <trans-unit id="Lagon" xml:space="preserve">
@@ -700,6 +770,16 @@
       <trans-unit id="Masquer les autres fichiers" xml:space="preserve">
         <source>Masquer les autres fichiers</source>
         <target state="needs-review-translation">다른 파일 가리기</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mise à jour" xml:space="preserve">
+        <source>Mise à jour</source>
+        <target state="needs-review-translation">업데이트</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mises à jour" xml:space="preserve">
+        <source>Mises à jour</source>
+        <target state="needs-review-translation">업데이트</target>
         <note/>
       </trans-unit>
       <trans-unit id="Mode" xml:space="preserve">
@@ -857,6 +937,11 @@
         <target state="needs-review-translation">열기…</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Page des versions" xml:space="preserve">
+        <source>Page des versions</source>
+        <target state="needs-review-translation">릴리스 페이지</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Papier" xml:space="preserve">
         <source>Papier</source>
         <target state="needs-review-translation">용지</target>
@@ -892,9 +977,19 @@
         <target state="needs-review-translation">지도</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Plus tard" xml:space="preserve">
+        <source>Plus tard</source>
+        <target state="needs-review-translation">나중에</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Ponton" xml:space="preserve">
         <source>Ponton</source>
         <target state="needs-review-translation">부두</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Préparation de la mise à jour…" xml:space="preserve">
+        <source>Préparation de la mise à jour…</source>
+        <target state="needs-review-translation">업데이트 준비 중…</target>
         <note/>
       </trans-unit>
       <trans-unit id="Recharger" xml:space="preserve">
@@ -907,9 +1002,19 @@
         <target state="needs-review-translation">다시 로드하면 디스크에 있는 버전이 표시되고 변경 사항이 취소됩니다.</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Recherche de mises à jour…" xml:space="preserve">
+        <source>Recherche de mises à jour…</source>
+        <target state="needs-review-translation">업데이트 확인 중…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rechercher" xml:space="preserve">
         <source>Rechercher</source>
         <target state="needs-review-translation">검색</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher automatiquement" xml:space="preserve">
+        <source>Rechercher automatiquement</source>
+        <target state="needs-review-translation">자동으로 확인</target>
         <note/>
       </trans-unit>
       <trans-unit id="Rechercher dans l'aide-mémoire" xml:space="preserve">
@@ -935,6 +1040,16 @@
       <trans-unit id="Rechercher le suivant" xml:space="preserve">
         <source>Rechercher le suivant</source>
         <target state="needs-review-translation">다음 검색</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher les mises à jour…" xml:space="preserve">
+        <source>Rechercher les mises à jour…</source>
+        <target state="needs-review-translation">업데이트 확인…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher maintenant" xml:space="preserve">
+        <source>Rechercher maintenant</source>
+        <target state="needs-review-translation">지금 확인</target>
         <note/>
       </trans-unit>
       <trans-unit id="Rechercher…" xml:space="preserve">
@@ -965,6 +1080,16 @@
       <trans-unit id="Récents" xml:space="preserve">
         <source>Récents</source>
         <target state="needs-review-translation">최근 항목</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Réessayer" xml:space="preserve">
+        <source>Réessayer</source>
+        <target state="needs-review-translation">다시 시도</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Réessayez plus tard, ou téléchargez la version depuis la page des versions." xml:space="preserve">
+        <source>Réessayez plus tard, ou téléchargez la version depuis la page des versions.</source>
+        <target state="needs-review-translation">나중에 다시 시도하거나 릴리스 페이지에서 다운로드하십시오.</target>
         <note/>
       </trans-unit>
       <trans-unit id="Sans langage" xml:space="preserve">
@@ -1137,6 +1262,16 @@
         <target state="needs-review-translation">작업</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Téléchargement…" xml:space="preserve">
+        <source>Téléchargement…</source>
+        <target state="needs-review-translation">다운로드 중…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Télécharger et installer sans demander" xml:space="preserve">
+        <source>Télécharger et installer sans demander</source>
+        <target state="needs-review-translation">묻지 않고 다운로드 및 설치</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="US Letter" xml:space="preserve">
         <source>US Letter</source>
         <target state="needs-review-translation">US Letter</target>
@@ -1175,6 +1310,11 @@
       <trans-unit id="Vers un titre" xml:space="preserve">
         <source>Vers un titre</source>
         <target state="needs-review-translation">제목으로</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Version %@" xml:space="preserve">
+        <source>Version %@</source>
+        <target state="needs-review-translation">버전 %@</target>
         <note/>
       </trans-unit>
       <trans-unit id="Vos modifications seront perdues si vous ne les enregistrez pas." xml:space="preserve">
@@ -1442,6 +1582,11 @@
         <target state="needs-review-translation">셋째</target>
         <note/>
       </trans-unit>
+      <trans-unit id="vous avez %@" xml:space="preserve">
+        <source>vous avez %@</source>
+        <target state="needs-review-translation">현재 %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="« %@ » a été modifié par une autre application depuis son ouverture." xml:space="preserve">
         <source>« %@ » a été modifié par une autre application depuis son ouverture.</source>
         <target state="needs-review-translation">“%@”은(는) 열린 후 다른 응용 프로그램에서 변경되었습니다.</target>
@@ -1465,6 +1610,16 @@
       <trans-unit id="« %@ » est introuvable" xml:space="preserve">
         <source>« %@ » est introuvable</source>
         <target state="needs-review-translation">“%@”을(를) 찾을 수 없음</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="À l'ouverture, puis une fois par jour" xml:space="preserve">
+        <source>À l'ouverture, puis une fois par jour</source>
+        <target state="needs-review-translation">열 때 확인하고, 이후 하루에 한 번</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="À la fermeture" xml:space="preserve">
+        <source>À la fermeture</source>
+        <target state="needs-review-translation">종료 시</target>
         <note/>
       </trans-unit>
       <trans-unit id="À puces" xml:space="preserve">

@@ -2,6 +2,21 @@
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
   <file original="Editor/Localizable.xcstrings" source-language="fr" target-language="pt-PT" datatype="plaintext">
     <body>
+      <trans-unit id="%@ %@ est disponible" xml:space="preserve">
+        <source>%@ %@ est disponible</source>
+        <target state="needs-review-translation">%@ %@ está disponível</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ est à jour" xml:space="preserve">
+        <source>%@ est à jour</source>
+        <target state="needs-review-translation">%@ está atualizada</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="%@ sur %@" xml:space="preserve">
+        <source>%@ sur %@</source>
+        <target state="needs-review-translation">%@ de %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="%@ · Modifié" xml:space="preserve">
         <source>%@ · Modifié</source>
         <target state="needs-review-translation">%@ · Modificado</target>
@@ -317,6 +332,11 @@
         <target state="needs-review-translation">Máquina de escrever</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Dernière recherche : %@" xml:space="preserve">
+        <source>Dernière recherche : %@</source>
+        <target state="needs-review-translation">Última procura: %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Disposition" xml:space="preserve">
         <source>Disposition</source>
         <target state="needs-review-translation">Disposição</target>
@@ -527,6 +547,11 @@
         <target state="needs-review-translation">HTML</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Ignorer cette version" xml:space="preserve">
+        <source>Ignorer cette version</source>
+        <target state="needs-review-translation">Ignorar esta versão</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Il a peut-être été déplacé, renommé ou supprimé." xml:space="preserve">
         <source>Il a peut-être été déplacé, renommé ou supprimé.</source>
         <target state="needs-review-translation">Pode ter sido movido, renomeado ou eliminado.</target>
@@ -597,6 +622,26 @@
         <target state="needs-review-translation">Indentado</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Installation en quelques secondes ; l'appli se relance toute seule." xml:space="preserve">
+        <source>Installation en quelques secondes ; l'appli se relance toute seule.</source>
+        <target state="needs-review-translation">Instala-se em poucos segundos; a aplicação reabre sozinha.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installer et relancer" xml:space="preserve">
+        <source>Installer et relancer</source>
+        <target state="needs-review-translation">Instalar e reabrir</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installer quand l'appli sera quittée" xml:space="preserve">
+        <source>Installer quand l'appli sera quittée</source>
+        <target state="needs-review-translation">Instalar ao sair da aplicação</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Installée à la fermeture de l'appli" xml:space="preserve">
+        <source>Installée à la fermeture de l'appli</source>
+        <target state="needs-review-translation">Instalada ao sair da aplicação</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Insérer" xml:space="preserve">
         <source>Insérer</source>
         <target state="needs-review-translation">Inserir</target>
@@ -607,9 +652,34 @@
         <target state="needs-review-translation">Itálico</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Jamais recherchées" xml:space="preserve">
+        <source>Jamais recherchées</source>
+        <target state="needs-review-translation">Nunca procuradas</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Km" xml:space="preserve">
         <source>Km</source>
         <target state="needs-review-translation">Km</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="L'appli se fermera, puis se relancera aussitôt." xml:space="preserve">
+        <source>L'appli se fermera, puis se relancera aussitôt.</source>
+        <target state="needs-review-translation">A aplicação vai fechar e reabrir de seguida.</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La mise à jour est prête" xml:space="preserve">
+        <source>La mise à jour est prête</source>
+        <target state="needs-review-translation">A atualização está pronta</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La mise à jour n'a pas pu être installée" xml:space="preserve">
+        <source>La mise à jour n'a pas pu être installée</source>
+        <target state="needs-review-translation">Não foi possível instalar a atualização</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="La version %@ est la plus récente." xml:space="preserve">
+        <source>La version %@ est la plus récente.</source>
+        <target state="needs-review-translation">A versão %@ é a mais recente.</target>
         <note/>
       </trans-unit>
       <trans-unit id="Lagon" xml:space="preserve">
@@ -715,6 +785,16 @@
       <trans-unit id="Masquer les autres fichiers" xml:space="preserve">
         <source>Masquer les autres fichiers</source>
         <target state="needs-review-translation">Ocultar os outros ficheiros</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mise à jour" xml:space="preserve">
+        <source>Mise à jour</source>
+        <target state="needs-review-translation">Atualização</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Mises à jour" xml:space="preserve">
+        <source>Mises à jour</source>
+        <target state="needs-review-translation">Atualizações</target>
         <note/>
       </trans-unit>
       <trans-unit id="Mode" xml:space="preserve">
@@ -872,6 +952,11 @@
         <target state="needs-review-translation">Abrir…</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Page des versions" xml:space="preserve">
+        <source>Page des versions</source>
+        <target state="needs-review-translation">Página de versões</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Papier" xml:space="preserve">
         <source>Papier</source>
         <target state="needs-review-translation">Papel</target>
@@ -907,9 +992,19 @@
         <target state="needs-review-translation">Estrutura</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Plus tard" xml:space="preserve">
+        <source>Plus tard</source>
+        <target state="needs-review-translation">Mais tarde</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Ponton" xml:space="preserve">
         <source>Ponton</source>
         <target state="needs-review-translation">Pontão</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Préparation de la mise à jour…" xml:space="preserve">
+        <source>Préparation de la mise à jour…</source>
+        <target state="needs-review-translation">A preparar a atualização…</target>
         <note/>
       </trans-unit>
       <trans-unit id="Recharger" xml:space="preserve">
@@ -922,9 +1017,19 @@
         <target state="needs-review-translation">Ao recarregar, é apresentada a versão no disco e as suas alterações são descartadas.</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Recherche de mises à jour…" xml:space="preserve">
+        <source>Recherche de mises à jour…</source>
+        <target state="needs-review-translation">A procurar atualizações…</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="Rechercher" xml:space="preserve">
         <source>Rechercher</source>
         <target state="needs-review-translation">Pesquisar</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher automatiquement" xml:space="preserve">
+        <source>Rechercher automatiquement</source>
+        <target state="needs-review-translation">Procurar automaticamente</target>
         <note/>
       </trans-unit>
       <trans-unit id="Rechercher dans l'aide-mémoire" xml:space="preserve">
@@ -950,6 +1055,16 @@
       <trans-unit id="Rechercher le suivant" xml:space="preserve">
         <source>Rechercher le suivant</source>
         <target state="needs-review-translation">Pesquisar seguinte</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher les mises à jour…" xml:space="preserve">
+        <source>Rechercher les mises à jour…</source>
+        <target state="needs-review-translation">Procurar atualizações…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Rechercher maintenant" xml:space="preserve">
+        <source>Rechercher maintenant</source>
+        <target state="needs-review-translation">Procurar agora</target>
         <note/>
       </trans-unit>
       <trans-unit id="Rechercher…" xml:space="preserve">
@@ -980,6 +1095,16 @@
       <trans-unit id="Récents" xml:space="preserve">
         <source>Récents</source>
         <target state="needs-review-translation">Recentes</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Réessayer" xml:space="preserve">
+        <source>Réessayer</source>
+        <target state="needs-review-translation">Tentar novamente</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Réessayez plus tard, ou téléchargez la version depuis la page des versions." xml:space="preserve">
+        <source>Réessayez plus tard, ou téléchargez la version depuis la page des versions.</source>
+        <target state="needs-review-translation">Tente novamente mais tarde ou descarregue a versão na página de versões.</target>
         <note/>
       </trans-unit>
       <trans-unit id="Sans langage" xml:space="preserve">
@@ -1152,6 +1277,16 @@
         <target state="needs-review-translation">Tarefas</target>
         <note/>
       </trans-unit>
+      <trans-unit id="Téléchargement…" xml:space="preserve">
+        <source>Téléchargement…</source>
+        <target state="needs-review-translation">A descarregar…</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Télécharger et installer sans demander" xml:space="preserve">
+        <source>Télécharger et installer sans demander</source>
+        <target state="needs-review-translation">Descarregar e instalar sem perguntar</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="US Letter" xml:space="preserve">
         <source>US Letter</source>
         <target state="needs-review-translation">US Letter</target>
@@ -1190,6 +1325,11 @@
       <trans-unit id="Vers un titre" xml:space="preserve">
         <source>Vers un titre</source>
         <target state="needs-review-translation">Para um título</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="Version %@" xml:space="preserve">
+        <source>Version %@</source>
+        <target state="needs-review-translation">Versão %@</target>
         <note/>
       </trans-unit>
       <trans-unit id="Vos modifications seront perdues si vous ne les enregistrez pas." xml:space="preserve">
@@ -1457,6 +1597,11 @@
         <target state="needs-review-translation">terceiro</target>
         <note/>
       </trans-unit>
+      <trans-unit id="vous avez %@" xml:space="preserve">
+        <source>vous avez %@</source>
+        <target state="needs-review-translation">tem a %@</target>
+        <note/>
+      </trans-unit>
       <trans-unit id="« %@ » a été modifié par une autre application depuis son ouverture." xml:space="preserve">
         <source>« %@ » a été modifié par une autre application depuis son ouverture.</source>
         <target state="needs-review-translation">«%@» foi modificado por outra aplicação desde que foi aberto.</target>
@@ -1485,6 +1630,16 @@
       <trans-unit id="« %@ » est introuvable" xml:space="preserve">
         <source>« %@ » est introuvable</source>
         <target state="needs-review-translation">«%@» não foi encontrado</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="À l'ouverture, puis une fois par jour" xml:space="preserve">
+        <source>À l'ouverture, puis une fois par jour</source>
+        <target state="needs-review-translation">Ao abrir e depois uma vez por dia</target>
+        <note/>
+      </trans-unit>
+      <trans-unit id="À la fermeture" xml:space="preserve">
+        <source>À la fermeture</source>
+        <target state="needs-review-translation">Ao sair</target>
         <note/>
       </trans-unit>
       <trans-unit id="À puces" xml:space="preserve">
